@@ -1,0 +1,102 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "sapips.training.jsonbinding",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.17.6",
+      "toolsId": "3f9ca2da-d8da-4ab5-a5d2-d2d47a3f7a13"
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "ProductsModel": {
+     "type": "sap.ui.model.json.JSONModel",
+    "uri": "model/products.json"
+    },
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "sapips.training.jsonbinding.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "sapips.training.jsonbinding.view",
+        "async": true,
+        "viewPath": "sapips.training.jsonbinding.view"
+      },
+      "routes": [
+        {
+          "name": "RouteJSONBinding",
+          "pattern": ":?query:",
+          "target": [
+            "TargetJSONBinding"
+          ]
+        }
+      ],
+      "targets": {
+        "TargetJSONBinding": {
+          "id": "JSONBinding",
+          "name": "JSONBinding"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sapips.training.jsonbinding.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}
