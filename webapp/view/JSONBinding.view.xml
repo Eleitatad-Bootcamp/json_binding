@@ -13,12 +13,11 @@
       <!-- Panel: Data Binding Basics -->
       <Panel id="dataBindingPanel" headerText="Data Binding Basics" class="sapUiResponsiveMargin" width="auto">
         <form:SimpleForm id="dataBindingForm">
-
           <Label id="lblEidInput" text="EID"/>
-          <Input id="eidInput" value="{/Eid}" enabled="true" />
+          <Input id="eidInput" value="{/Eid}" enabled="true"/>
 
           <Label id="lblEnabledCheckBox" text="Enabled"/>
-          <CheckBox id="enabledCheckBox" selected="{/Enabled}" />
+          <CheckBox id="enabledCheckBox" selected="{/Enabled}"/>
         </form:SimpleForm>
       </Panel>
 
@@ -55,92 +54,86 @@
         </form:SimpleForm>
       </Panel>
 
-<!-- Panel: Aggregation Binding -->
-<Panel id="aggregationPanel" headerText="Aggregation Binding" class="sapUiResponsiveMargin" width="auto">
-    <List
-        id="productList"
-        items="{path: 'ProductsModel>/Products'}"
-        mode="SingleSelectMaster"
-        selectionChange=".onProductSelect">
-        
-        <CustomListItem>
+      <!-- Panel: Aggregation Binding -->
+      <Panel id="aggregationPanel" headerText="Aggregation Binding" class="sapUiResponsiveMargin" width="auto">
+        <List
+          id="productList"
+          items="{path: 'ProductsModel>/Products'}"
+          mode="SingleSelectMaster"
+          selectionChange=".onProductSelect">
+          <CustomListItem>
             <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMargin">
-                <!-- Left Side - Product Details -->
-                <VBox>
-                    <HBox alignItems="Center" class="sapUiTinyMarginBottom">
-                        <Label text="Product:" width="80px" design="Bold" class="sapUiTinyMarginEnd"/>
-                        <Text text="{ProductsModel>ProductName}"/>
-                    </HBox>
-                    
-                    <HBox alignItems="Center">
-                        <Label text="In Stock:" width="80px" design="Bold" class="sapUiTinyMarginEnd"/>
-                        <ObjectNumber
-                            number="{ProductsModel>UnitsInStock}"
-                            state="Success"/>
-                    </HBox>
-                </VBox>
-                
-                <!-- Right Side - Pricing and Quantity -->
-                <VBox alignItems="End">
-                    <HBox alignItems="Center" class="sapUiTinyMarginBottom">
-                        <Label text="Package:" design="Bold" class="sapUiTinyMarginEnd"/>
-                        <Text text="{ProductsModel>QuantityPerUnit}"/>
-                    </HBox>
-                    
-                    <HBox alignItems="Center" class="sapUiTinyMarginBottom">
-                        <Label text="Price:" design="Bold" class="sapUiTinyMarginEnd"/>
-                        <ObjectNumber
-                            number="{
-                                parts: [
-                                    {path: 'ProductsModel>UnitPrice'},
-                                    {path: '/CurrencyCode'}
-                                ],
-                                type: 'sap.ui.model.type.Currency',
-                                formatOptions: {
-                                    showMeasure: false
-                                }
-                            }"
-                            unit="{/CurrencyCode}"
-                            state="Success"/>
-                    </HBox>
-                </VBox>
+              <!-- Left Side - Product Details -->
+              <VBox>
+                <HBox alignItems="Center" class="sapUiTinyMarginBottom">
+                  <Label text="Product:" width="80px" design="Bold" class="sapUiTinyMarginEnd"/>
+                  <Text text="{ProductsModel>ProductName}"/>
+                </HBox>
+                <HBox alignItems="Center">
+                  <Label text="In Stock:" width="80px" design="Bold" class="sapUiTinyMarginEnd"/>
+                  <ObjectNumber number="{ProductsModel>UnitsInStock}" state="Success"/>
+                </HBox>
+              </VBox>
+
+              <!-- Right Side - Pricing and Quantity -->
+              <VBox alignItems="End">
+                <HBox alignItems="Center" class="sapUiTinyMarginBottom">
+                  <Label text="Package:" design="Bold" class="sapUiTinyMarginEnd"/>
+                  <Text text="{ProductsModel>QuantityPerUnit}"/>
+                </HBox>
+                <HBox alignItems="Center" class="sapUiTinyMarginBottom">
+                  <Label text="Price:" design="Bold" class="sapUiTinyMarginEnd"/>
+                  <ObjectNumber
+                    number="{
+                      parts: [
+                        {path: 'ProductsModel>UnitPrice'},
+                        {path: '/CurrencyCode'}
+                      ],
+                      type: 'sap.ui.model.type.Currency',
+                      formatOptions: { showMeasure: false }
+                    }"
+                    unit="{/CurrencyCode}"
+                    state="Success"
+                  />
+                </HBox>
+              </VBox>
             </HBox>
-        </CustomListItem>
-    </List>
-</Panel>
+          </CustomListItem>
+        </List>
+      </Panel>
 
       <!-- Panel: Product Details -->
       <Panel id="productDetailsPanel" headerText="Product Details" class="sapUiResponsiveMargin" width="auto">
         <form:SimpleForm id="productDetailsForm">
           <Label id="lblProductID" text="Product ID"/>
-          <Input id="productIDInput" value="{/SelectedProduct/ProductID}" />
+          <Input id="productIDInput" value="{/SelectedProduct/ProductID}"/>
 
           <Label id="lblProductName" text="Product Name"/>
-          <Input id="productNameInput" value="{/SelectedProduct/ProductName}" />
+          <Input id="productNameInput" value="{/SelectedProduct/ProductName}"/>
 
           <Label id="lblSupplierID" text="Supplier ID"/>
-          <Input id="supplierIDInput" value="{/SelectedProduct/SupplierID}" />
+          <Input id="supplierIDInput" value="{/SelectedProduct/SupplierID}"/>
 
           <Label id="lblCategoryID" text="Category ID"/>
-         <Input id="categoryIDInput" value="{/SelectedProduct/CategoryID}" />
+          <Input id="categoryIDInput" value="{/SelectedProduct/CategoryID}"/>
 
           <Label id="lblQuantityPerUnit" text="Quantity Per Unit"/>
-          <Input id="quantityPerUnitInput" value="{/SelectedProduct/QuantityPerUnit}" />
+          <Input id="quantityPerUnitInput" value="{/SelectedProduct/QuantityPerUnit}"/>
 
           <Label id="lblUnitPrice" text="Unit Price"/>
-          <Input id="unitPriceInput" value="{/SelectedProduct/UnitPrice}" />
+          <Input id="unitPriceInput" value="{/SelectedProduct/UnitPrice}"/>
 
           <Label id="lblUnitsInStock" text="Units In Stock"/>
-          <Input id="unitsInStockInput" value="{/SelectedProduct/UnitsInStock}" />
+          <Input id="unitsInStockInput" value="{/SelectedProduct/UnitsInStock}"/>
 
           <Label id="lblUnitsOnOrder" text="Units On Order"/>
-          <Input id="unitsOnOrderInput" value="{/SelectedProduct/UnitsOnOrder}" />
+          <Input id="unitsOnOrderInput" value="{/SelectedProduct/UnitsOnOrder}"/>
 
           <Label id="lblReorderLevel" text="Reorder Level"/>
-          <Input id="reorderLevelInput" value="{/SelectedProduct/ReorderLevel}" />
+          <Input id="reorderLevelInput" value="{/SelectedProduct/ReorderLevel}"/>
 
           <Label id="lblDiscontinued" text="Discontinued"/>
-          <Input id="discontinuedInput" value="{/SelectedProduct/Discontinued}" />
+          <Input id="discontinuedInput" value="{/SelectedProduct/Discontinued}"/>
         </form:SimpleForm>
       </Panel>
 
